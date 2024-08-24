@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf",
+      "sha1": "71218c88eb70c82d24a4987f9127baf987f1feed"
+    },
+    {
+      "path": "assets/fonts/NotoSans-VariableFont_wdth,wght.ttf",
+      "sha1": "a89ea628b1ae1d370cb3bbf6cfa4841a6352a7da"
+    }
+  ]
+}
