@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity, ScrollView,ImageBackground, } from 'react-native';
+import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity, ScrollView,ImageBackground,FontFamily } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
@@ -12,8 +12,8 @@ const LoginScreen = ({ navigation }) => {
   
 
   const handleLogin = () => {
-    const Username = 'Oooo';
-    const Password = 'Oooo';
+    const Username = 'Logesh';
+    const Password = '123';
 
     if (username === Username && password === Password) {
       Alert.alert('Login Successful', 'Welcome, LokeshM!', [
@@ -31,9 +31,9 @@ const LoginScreen = ({ navigation }) => {
 return (
   
     <ImageBackground 
-      source={{ uri:'https://i.pinimg.com/736x/71/71/fe/7171fe7f9d4f4c956aecacb7003a3d72.jpg' }}
+      source={{ uri:'https://i.pinimg.com/564x/15/75/ab/1575ab3d19237a932e7c8878d511be2e.jpg'}}
 
-      
+      // https://i.pinimg.com/564x/0d/59/af/0d59af1c1118b26bb57608911e34171e.jpg
       style={styles.backgroundImage}>
    
       <View  style={styles.container}>
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    
   
     
   },
@@ -94,42 +95,52 @@ const styles = StyleSheet.create({
     // flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+    backgroundColor: 'rgba(21, 22, 21,0.5)',
     borderRadius: 15,
-    margin: 40,
-    shadowColor:"darkgreen",
-    elevation:30,
+    margin:40,
+    shadowColor:"#ffffff",
+    borderWidth:2,
+    borderColor:'#ffffff',
+    elevation:80,
+    
+    // elevation:30,
     },
   title: {
     fontSize: 50,
     marginBottom: 30,
     textAlign: 'center',
     paddingTop:10,
-   
+    color: '#ffffff',
+  
     
   },
   inputContainer: {
     marginBottom: 20,
+    
   },
   label: {
-    fontSize: 16,
+    fontSize: 17,
     marginBottom: 5,
-    color: '#333',
+    // color: '#333',
+    color: '#ffffff',
   },
   input: {
     height: 40,
-    borderWidth: 2,
+    // borderWidth: 2,
     paddingHorizontal: 10,
     borderRadius: 10,
     borderColor: '#ccc',
-    backgroundColor: 'rgba(160, 173, 149,0.5)',
+    backgroundColor: '#FFFFFF',
   },
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    
+    
   },
   passwordInput: {
     flex: 1,
+    
   },
   eyeIcon: {
     position: 'absolute',
@@ -137,7 +148,8 @@ const styles = StyleSheet.create({
     top: 10,
   },
   button: {
-    backgroundColor: 'rgba(103, 199, 27,10)',
+    // backgroundColor: 'rgba(103, 199, 27,10)',
+    backgroundColor:'#ffffff',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -145,8 +157,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   buttonText: {
-    color: '#ffffff',
-    fontSize: 16,
+    color: 'black',
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

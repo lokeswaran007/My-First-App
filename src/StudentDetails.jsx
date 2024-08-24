@@ -39,7 +39,7 @@ const StudentDetail = ({ route }) => {
 
   return (
     <ImageBackground 
-      source={{ uri: 'https://i.pinimg.com/736x/71/71/fe/7171fe7f9d4f4c956aecacb7003a3d72.jpg' }}
+      source={{ uri: 'https://i.pinimg.com/564x/8b/ce/1e/8bce1e4d81426249a606b66c7ca626d7.jpg' }}
       style={styles.backgroundImage}>
     <View style={styles.container}>
       <Text style={styles.title}>Student Details</Text>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
       },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
     // textAlign: 'center',
@@ -151,19 +151,19 @@ const styles = StyleSheet.create({
     paddingTop:30,
   },
   table: {
-    borderWidth: 1,
+    // borderWidth:0.5,
     borderColor: '#ccc',
     borderRadius: 10,
     overflow: 'hidden',
     alignItems:'center',
     alignContent:'center',
-    paddingHorizontal:10,
+    paddingHorizontal:15,
   },
   tableRow: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    paddingVertical: 10,
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'black',
+    paddingVertical: 13,
     paddingHorizontal:10,
     
   },
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cellText: {
-    fontSize: 19,
+    fontSize: 16,
   },
 //   cell:{
 //     fontSize:19,

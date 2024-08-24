@@ -17,7 +17,7 @@ const RegistrationScreen = ({ route }) => {
   const [gender, setGender] = useState('');
   const [selectedMediums, setSelectedMediums] = useState([]);
 
-  const mediums = ['Tamil', 'English'];
+  const mediums = ['Tamil   ', 'English'];
   
   const navigation = useNavigation();
 
@@ -98,7 +98,7 @@ const RegistrationScreen = ({ route }) => {
 
   return (
     <ImageBackground 
-      source={{ uri: 'https://i.pinimg.com/736x/71/71/fe/7171fe7f9d4f4c956aecacb7003a3d72.jpg' }}
+      source={{ uri: 'https://i.pinimg.com/564x/8b/ce/1e/8bce1e4d81426249a606b66c7ca626d7.jpg' }}
       style={styles.backgroundImage}
     >
       <ScrollView>
@@ -121,7 +121,7 @@ const RegistrationScreen = ({ route }) => {
           />
 
           <Text style={styles.label}>Gender:</Text>
-          {renderRadioButton('Male', 'Male')}
+          {renderRadioButton('Male    ', 'Male')}
           {renderRadioButton('Female', 'Female')}
 
           <Text style={styles.label}>Class:</Text>
@@ -193,7 +193,7 @@ const RegistrationScreen = ({ route }) => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', // or 'stretch' depending on your preference
+    resizeMode: 'cover',
     justifyContent: 'center',
   },
   container: {
@@ -202,89 +202,113 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 50,
     marginTop: 50,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    
+    backgroundColor: 'rgba(21, 22, 21,0.1)',
+    // color:'#FFFFF',
+    marginLeft:15,
+    marginRight:15,
+    borderWidth:3,
+    borderColor:'#ffffff',
     margin: 10,
+    elevation:80,
+    // shadowColor:"#ffffff",
   },
   title: {
     fontSize: 35,
     marginBottom: 30,
     textAlign: 'center',
     marginTop: 10,
+    color: 'black',
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
+    height: 50,
+    // borderColor: 'gray',
     marginBottom: 12,
     paddingHorizontal: 15,
     borderRadius: 10,
-    backgroundColor: "#EEEEEE",
-    borderWidth: 0.5,
+    backgroundColor: "#ffffff",
+    
+  
   },
   picker: {
-    height: 50,
-    borderColor: 'gray',
+    // height: 30,
+    // borderColor: 'gray',
     borderRadius: 10,
-    backgroundColor: "#EEEEEE",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
     marginBottom: 12,
-    borderWidth: 0.5,
+    // borderWidth: 0.5,
   },
   label: {
     fontSize: 18,
+    // color: '#ffffff',
   },
   radioButtonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding:15,
+    borderRadius:10,
+    marginRight:160,
+    justifyContent:'space-evenly'
   },
   radioButton: {
     width: 20,
     height: 20,
     borderRadius: 12,
     borderWidth: 4.5,
-    borderColor: '#FFFFFF',
+    borderColor: 'gray',
     marginRight: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
   radioButtonSelected: {
-    borderColor: '#00A36C',
+    // borderColor:'rgba(103, 199, 27,10)',
+    borderColor:'blue',
   },
   radioButtonLabel: {
     fontSize: 18,
   },
   button: {
-    backgroundColor: '#007BFF',
-    paddingVertical: 10,
+    // backgroundColor: '#007BFF',
+    paddingVertical: 15,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: 'center',
     marginTop: 20,
     marginBottom: 30,
+    backgroundColor: 'rgba(21, 22, 21,0.9)',
   },
   buttonText: {
     color: '#ffffff',
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: 'bold',
   },
   checkboxContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 14,
+    padding:15,
+    borderRadius:10,
+    justifyContent:'space-evenly',
+    marginRight:160,
   },
   checkbox: {
     width: 20,
     height: 20,
-    borderRadius: 2,
+    borderRadius: 5,
     borderWidth: 1,
     borderColor: '#007BFF',
     marginRight: 10,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   checkboxChecked: {
-    backgroundColor: '#007BFF',
+    backgroundColor: 'blue',
+    // backgroundColor: 'rgba(103, 199, 27,10)',
   },
   checkboxTick: {
     color: '#FFFFFF',
