@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity, ScrollView,ImageBackground,FontFamily } from 'react-native';
+import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity, Modal,ImageBackground,FontFamily } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
@@ -9,22 +9,29 @@ const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const handleLogin = () => {
-    const Username = 'Loki';
-    const Password = '123';
+    const Username = 'Lokesh';
+    const Password = 'Lokesh@007';
 
-    if (username === Username && password === Password) {
-      Alert.alert('Login Successful', 'Welcome, LokeshM!', [
-        {
 
-          onPress: () => navigation.navigate('Registration', { userName: username }),
-        },
-      ]);
-    } else {
-      Alert.alert('Login Failed', 'Invalid username or password.');
-    }
-  };
+
+  if (username === Username && password === Password) {
+    setAlertMessage('Welcome, Lokesh!');
+    setModalVisible(true);
+    setUsername('');
+    setPassword('');
+    setTimeout(() => {
+      setModalVisible(false);
+      navigation.navigate('Registration', { userName: username });
+    }, 800); 
+  } else {
+    setAlertMessage('Invalid username or password.');
+    setModalVisible(true);
+  }
+};
 
 
 return (
@@ -72,6 +79,27 @@ return (
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
      </View>
+
+
+
+     <Modal
+      transparent={true}
+      visible={modalVisible}
+      animationType="fade"
+      onRequestClose={() => setModalVisible(false)}
+    >
+      <View style={styles.modalOverlay}>
+        <View style={styles.modalContent}>
+          <Text style={styles.modalText}>{alertMessage}</Text>
+          <TouchableOpacity
+            style={styles.modalButton}
+            onPress={() => setModalVisible(false)}
+          >
+            <Text style={styles.modalButtonText}>OK</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
      
      </ImageBackground>
      
@@ -142,6 +170,37 @@ const styles = StyleSheet.create({
   buttonText: {
     color:'#FFFFFF' ,
     fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    width: '80%',
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: 'white',
+    alignItems: 'center',
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 15,
+    color: 'black',
+  },
+  modalButton: {
+    backgroundColor: 'rgb(33, 150, 243)',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  modalButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
     fontWeight: 'bold',
   },
 });

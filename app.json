@@ -2,6 +2,11 @@
   "expo": {
     "name": "mytask",
     "slug": "mytask",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "959770e5-8859-4617-8332-c4fe18d87514"
+      }
+    }
   }
 }

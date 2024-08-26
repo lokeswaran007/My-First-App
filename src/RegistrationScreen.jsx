@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, ImageBackground, ScrollView , Modal} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,6 +16,11 @@ const RegistrationScreen = ({ route }) => {
   const [socialScience, setSocialScience] = useState('');
   const [gender, setGender] = useState('');
   const [selectedMediums, setSelectedMediums] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  
+
+
 
   const mediums = ['Tamil   ', 'English'];
   
@@ -37,7 +42,8 @@ const RegistrationScreen = ({ route }) => {
 
   const validateForm = () => {
     if (!name || !StudentId || !selectedClass || !tamil || !english || !maths || !science || !socialScience || !gender || selectedMediums.length === 0) {
-      Alert.alert('Validation Error', 'Please fill all required fields.');
+      setAlertMessage('Please fill all required fields.');
+      setIsModalVisible(true);
       return false;
     }
     return true;
@@ -72,8 +78,21 @@ const RegistrationScreen = ({ route }) => {
         socialScience: parseFloat(socialScience) || 0,
         totalMarks
       }
+
+      
     });
-    // Alert.alert(`Total Marks: ${totalMarks}\nPercentage: ${percentage.toFixed(2)}%`);
+
+  setName('');
+  setStudentId('');
+  setSelectedClass('');
+  setTamil('');
+  setEnglish('');
+  setMaths('');
+  setScience('');
+  setSocialScience('');
+  setGender('');
+  setSelectedMediums([]);
+    
   };
 
   const toggleMedium = (medium) => {
@@ -199,6 +218,26 @@ const RegistrationScreen = ({ route }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <Modal
+  visible={isModalVisible}
+  transparent={true}
+  animationType="fade"
+  onRequestClose={() => setIsModalVisible(false)}
+>
+  <View style={styles.modalBackground}>
+    <View style={styles.modalContainer}>
+      <Text style={styles.modalTitle}>Validation Error</Text>
+      <Text style={styles.modalMessage}>{alertMessage}</Text>
+      <TouchableOpacity
+        style={styles.modalButton}
+        onPress={() => setIsModalVisible(false)}
+      >
+        <Text style={styles.modalButtonText}>OK</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+</Modal>
+
     </ImageBackground>
   );
 };
@@ -240,7 +279,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     borderRadius: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     marginBottom: 12,
   },
   label: {
@@ -251,7 +290,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     padding:15,
     borderRadius:10,
     marginRight:160,
@@ -288,7 +327,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   checkboxContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     
     flexDirection: 'row',
     alignItems: 'center',
@@ -319,6 +358,39 @@ const styles = StyleSheet.create({
   },
   checkboxLabel: {
     fontSize: 18,
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContainer: {
+    width: '80%',
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  modalMessage: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  modalButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    backgroundColor: 'rgba(33, 150, 243,0.9)',
+  },
+  modalButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
