@@ -19,9 +19,7 @@ const RegistrationScreen = ({ route }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   
-
-
-
+  
   const mediums = ['Tamil   ', 'English'];
   
   const navigation = useNavigation();
@@ -147,6 +145,7 @@ const RegistrationScreen = ({ route }) => {
           <Text style={styles.label}>Student Id:</Text>
           <TextInput
             style={styles.input}
+            keyboardType='numeric'
             placeholder="Enter the Student Id:"
             value={StudentId}
             onChangeText={setStudentId}

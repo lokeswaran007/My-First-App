@@ -13,8 +13,8 @@ const LoginScreen = ({ navigation }) => {
   const [alertMessage, setAlertMessage] = useState('');
 
   const handleLogin = () => {
-    const Username = 'Lokesh';
-    const Password = 'Lokesh@007';
+    const Username = '';
+    const Password = '';
 
 
 

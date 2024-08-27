@@ -1,8 +1,15 @@
 {
   "expo": {
-    "name": "mytask",
-    "slug": "mytask",
+    "name": "STUDO",
+    "slug": "STUDO",
     "version": "1.0.0",
+    "icon":"./android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+    "splash":{
+          "image":"./android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png",
+          "resizeMode":"center",
+          "backgroundColor":"black"
+    },
+        
     "extra": {
       "eas": {
         "projectId": "959770e5-8859-4617-8332-c4fe18d87514"
